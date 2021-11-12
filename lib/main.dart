@@ -101,7 +101,7 @@ class SecondView extends StatelessWidget {
         ),
         Container(
           margin: EdgeInsets.only(left: 5),
-          child: Text('Addd'),
+          child: Text('Add'),
         ),
       ],
     );
