@@ -87,7 +87,9 @@ class SecondView extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16),
       child: TextField(
-        decoration: InputDecoration(hintText: 'Lägg till ny TODO-uppgift'),
+        decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Lägg till ny TODO-uppgift'),
       ),
     );
   }
