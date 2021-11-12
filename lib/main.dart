@@ -64,22 +64,22 @@ class MainView extends StatelessWidget {
   }
 }
 
-Widget _checkboxRow() {
-  return Container(
-    margin: EdgeInsets.only(top: 25, bottom: 50),
-    child: Row(
-      children: [
-        Checkbox(
-          value: false,
-          onChanged: (val) {},
-        ),
-        const Text('Write a book'),
-        Container(width: 250),
-        const Icon(Icons.close),
-      ],
-    ),
-  );
-}
+//Widget _checkboxRow() {
+//  return Container(
+//    margin: EdgeInsets.only(top: 25, bottom: 50),
+//    child: Row(
+//      children: [
+//        Checkbox(
+//          value: false,
+//          onChanged: (val) {},
+//        ),
+//        const Text('Write a book'),
+//        Container(width: 250),
+//        const Icon(Icons.close),
+//      ],
+//    ),
+//  );
+//}
 
 class SecondView extends StatelessWidget {
   Widget build(BuildContext context) {
