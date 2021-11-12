@@ -84,7 +84,7 @@ Widget _checkboxRow() {
 class SecondView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Nya TODO')),
+      appBar: AppBar(title: Text('Lägg till ny TODO')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -104,7 +104,9 @@ class SecondView extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(left: 16, right: 16),
       child: TextField(
-        decoration: InputDecoration(hintText: 'Skriv ny TODO'),
+        decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Lägg till ny TODO-uppgift'),
       ),
     );
   }
