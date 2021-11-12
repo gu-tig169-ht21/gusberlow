@@ -59,7 +59,7 @@ class MainView extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.check_box_outline_blank),
       title: Text(strText),
-      trailing: Icon(Icons.highlight_remove),
+      trailing: Icon(Icons.close),
     );
   }
 }
