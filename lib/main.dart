@@ -89,7 +89,7 @@ class SecondView extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Lägg till ny TODO-uppgift'),
+            hintText: 'What are you going to do?'),
       ),
     );
   }
