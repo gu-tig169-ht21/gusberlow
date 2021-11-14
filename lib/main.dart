@@ -67,7 +67,7 @@ class MainView extends StatelessWidget {
 class SecondView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Lägg till ny TODO')),
+      appBar: AppBar(title: Text('TIG169 TODO')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
