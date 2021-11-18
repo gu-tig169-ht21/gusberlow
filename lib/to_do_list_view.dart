@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'model.dart';
-import 'secondView.dart';
-import 'toDoList.dart';
+import 'second_view.dart';
+import 'to_do_list.dart';
 
 class ToDoListView extends StatelessWidget {
+  const ToDoListView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
