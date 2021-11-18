@@ -18,7 +18,7 @@ class ToDoList extends StatelessWidget {
       leading: ToDoCB(), //checkbox-som ligger i model
 //      leading: Icon(Icons.check_box_outline_blank),
       title: Text(task.toDoText),
-      trailing: Icon(Icons.close),
+      trailing: const Icon(Icons.close),
       onTap: () {
         var state = Provider.of<MyState>(context, listen: false);
         state.removeTask(task);

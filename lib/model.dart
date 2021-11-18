@@ -24,6 +24,8 @@ class MyState extends ChangeNotifier {
 
 //state för checkboxen
 class ToDoCB extends StatefulWidget {
+  const ToDoCB({Key? key}) : super(key: key);
+
   @override
   State<ToDoCB> createState() => _ToDoCBState();
 }

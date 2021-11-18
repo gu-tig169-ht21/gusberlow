@@ -28,10 +28,10 @@ class SecondViewState extends State<SecondView> {
       });
     });
   }
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('TIG169 TODO')),
+      appBar: AppBar(title: const Text('TIG169 TODO')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,26 +40,26 @@ class SecondViewState extends State<SecondView> {
             Container(height: 20),
             TextField(
               controller: textEditingController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'What are you going to do?'),
             ),
             //          TaskInputField(ToDoItem(toDoText: this.toDoText)),
             Container(height: 20),
-            AddTask(),
+            addTask(),
           ],
         ),
       ),
     );
   }
 
-  Widget AddTask() {
+  Widget addTask() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton.icon(
-          label: Text('Add'),
-          icon: Icon(Icons.add),
+          label: const Text('Add'),
+          icon: const Icon(Icons.add),
           onPressed: () {
             Navigator.pop(context, ToDoItem(toDoText: toDoText));
           },
@@ -74,10 +74,11 @@ class TaskInputField extends StatelessWidget {
 
   TaskInputField(this.task);
 
+  @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 16, right: 16),
-      child: TextField(
+      margin: const EdgeInsets.only(left: 16, right: 16),
+      child: const TextField(
         decoration: InputDecoration(
             border: OutlineInputBorder(),
             hintText: 'What are you going to do?'),
