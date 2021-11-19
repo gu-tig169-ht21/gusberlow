@@ -25,9 +25,9 @@ class ToDoList extends StatelessWidget {
         },
       ),
       controlAffinity: ListTileControlAffinity.leading,
-      value: task.isChanged,
+      value: task.doneTask,
       onChanged: (value) {
-        state.isChanged(task);
+        state.doneTask(task);
       },
     );
   }

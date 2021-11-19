@@ -49,10 +49,9 @@ class ToDoListView extends StatelessWidget {
   }
 
   List<ToDoItem> _filterList(list, value) {
-    if (value == 2)
-      return list.where((task) => task.isChanged == true).toList();
+    if (value == 2) return list.where((task) => task.doneTask == true).toList();
     if (value == 3)
-      return list.where((task) => task.isChanged == false).toList();
+      return list.where((task) => task.doneTask == false).toList();
     return list;
   }
 }

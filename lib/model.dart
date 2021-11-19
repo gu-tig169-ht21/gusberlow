@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class ToDoItem {
   String? toDoText;
-  bool isChanged;
+  bool doneTask;
 
-  ToDoItem({this.toDoText, this.isChanged = false});
+  ToDoItem({this.toDoText, this.doneTask = false});
 
   void checkboxChanged(ToDoItem) {
-    isChanged = !isChanged;
+    doneTask = !doneTask;
   }
 }
 
@@ -34,7 +34,7 @@ class MyState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void isChanged(ToDoItem task) {
+  void doneTask(ToDoItem task) {
     task.checkboxChanged(task);
     notifyListeners();
   }
