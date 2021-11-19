@@ -31,7 +31,7 @@ class SecondViewState extends State<SecondView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('TIG169 TODO')),
+      appBar: AppBar(title: const Text('TIG169 TODO'), centerTitle: true),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
