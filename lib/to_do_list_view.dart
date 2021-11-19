@@ -14,14 +14,22 @@ class ToDoListView extends StatelessWidget {
         centerTitle: true,
         title: const Text('TIG169 TODO'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.more_vert),
-            onPressed: () {},
-          ),
+          PopupMenuButton(
+              onSelected: (int value) {
+                if (value != null)
+                  Provider.of<MyState>(context, listen: false)
+                      .setFilterTo(value);
+              },
+              itemBuilder: (context) => [
+                    PopupMenuItem(child: Text('All'), value: 1),
+                    PopupMenuItem(child: Text('Done'), value: 2),
+                    PopupMenuItem(child: Text('Undone'), value: 3),
+                  ]),
         ],
       ),
       body: Consumer<MyState>(
-        builder: (context, state, child) => ToDoList(state.list),
+        builder: (context, state, child) =>
+            ToDoList(_filterList(state.list, state.filterTo)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -38,5 +46,13 @@ class ToDoListView extends StatelessWidget {
         child: const Icon(Icons.add, color: Colors.white, size: 42),
       ),
     );
+  }
+
+  List<ToDoItem> _filterList(list, value) {
+    if (value == 2)
+      return list.where((task) => task.isChanged == true).toList();
+    if (value == 3)
+      return list.where((task) => task.isChanged == false).toList();
+    return list;
   }
 }

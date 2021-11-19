@@ -13,8 +13,16 @@ class ToDoItem {
 
 class MyState extends ChangeNotifier {
   List<ToDoItem> _list = [];
+  int _filterTo = 3;
 
   List<ToDoItem> get list => _list;
+
+  int get filterTo => _filterTo;
+
+  void setFilterTo(int filterTo) {
+    _filterTo = filterTo;
+    notifyListeners();
+  }
 
   void addTask(ToDoItem task) {
     _list.add(task);
@@ -29,28 +37,5 @@ class MyState extends ChangeNotifier {
   void isChanged(ToDoItem task) {
     task.checkboxChanged(task);
     notifyListeners();
-  }
-}
-
-//state för checkboxen
-class ToDoCB extends StatefulWidget {
-  const ToDoCB({Key? key}) : super(key: key);
-
-  @override
-  State<ToDoCB> createState() => _ToDoCBState();
-}
-
-class _ToDoCBState extends State<ToDoCB> {
-  bool? _myBool = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(
-        value: _myBool,
-        onChanged: (value) {
-          setState(() {
-            _myBool = value;
-          });
-        });
   }
 }
