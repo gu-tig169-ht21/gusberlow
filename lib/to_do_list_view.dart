@@ -11,8 +11,6 @@ class ToDoListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        foregroundColor: Colors.black,
         centerTitle: true,
         title: const Text('TIG169 TODO'),
         actions: [
