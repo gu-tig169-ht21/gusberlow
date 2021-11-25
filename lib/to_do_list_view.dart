@@ -37,7 +37,7 @@ class ToDoListView extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                      SecondView(ToDoItem(toDoText: 'A task to be done'))));
+                      SecondView(ToDoItem(toDoText: 'title'))));
           if (newTask != null) {
             //lägg till ny task
             Provider.of<MyState>(context, listen: false).addTask(newTask);
@@ -49,9 +49,10 @@ class ToDoListView extends StatelessWidget {
   }
 
   List<ToDoItem> _filterList(list, value) {
-    if (value == 2) return list.where((task) => task.doneTask == true).toList();
+    if (value == 2)
+      return list.where((task) => task.isChanged == true).toList();
     if (value == 3)
-      return list.where((task) => task.doneTask == false).toList();
+      return list.where((task) => task.isChanged == false).toList();
     return list;
   }
 }

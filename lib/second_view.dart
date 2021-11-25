@@ -44,7 +44,6 @@ class SecondViewState extends State<SecondView> {
                   border: OutlineInputBorder(),
                   hintText: 'What are you going to do?'),
             ),
-            //          TaskInputField(ToDoItem(toDoText: this.toDoText)),
             Container(height: 20),
             addTask(),
           ],
