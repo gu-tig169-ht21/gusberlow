@@ -16,7 +16,11 @@ class ToDoList extends StatelessWidget {
   Widget _listItem(context, ToDoItem task) {
     var state = Provider.of<MyState>(context, listen: false);
     return CheckboxListTile(
-      title: Text(task.toDoText),
+      title: Text(
+        task.toDoText,
+        style: TextStyle(
+            decoration: task.isChanged ? TextDecoration.lineThrough : null),
+      ),
       secondary: IconButton(
         icon: Icon(Icons.close),
         onPressed: () {
