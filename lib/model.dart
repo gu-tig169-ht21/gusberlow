@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import './api.dart';
 
 class ToDoItem {
-  String? id;
-  String? toDoText;
+  String id;
+  String toDoText;
   bool isChanged;
 
-  ToDoItem({this.id, this.toDoText, this.isChanged = false});
+  ToDoItem({required this.id, required this.toDoText, this.isChanged = false});
 
-  void checkboxChanged(ToDoItem) {
+  void checkboxChanged(ToDoItem task) {
     isChanged = !isChanged;
   }
 
   static Map<String, dynamic> toJson(ToDoItem task) {
     return {
       'title': task.toDoText,
-      'id': task.id,
       'done': task.isChanged,
     };
   }
@@ -30,11 +29,10 @@ class ToDoItem {
 }
 
 class MyState extends ChangeNotifier {
-  late List<ToDoItem> _list = [];
-  int _filterTo = 3;
+  List<ToDoItem> _list = [];
+  int _filterTo = 0;
 
   List<ToDoItem> get list => _list;
-
   int get filterTo => _filterTo;
 
   Future getList() async {
@@ -44,7 +42,7 @@ class MyState extends ChangeNotifier {
   }
 
   void setFilterTo(int filterTo) {
-    _filterTo = filterTo;
+    this._filterTo = filterTo;
     notifyListeners();
   }
 
@@ -54,13 +52,19 @@ class MyState extends ChangeNotifier {
   }
 
   void removeTask(ToDoItem task) async {
-    _list = await Api.deleteTask(task.id.toString());
+    _list = await Api.deleteTask(task.id);
     notifyListeners();
   }
 
-  void isChanged(ToDoItem task) async {
-    _list = await Api.changeTask(task.id.toString());
+  void changingTask(ToDoItem task) async {
+    task.checkboxChanged(task);
+    _list = await Api.changeTask(task.id, task);
 //    task.checkboxChanged(task);
+    notifyListeners();
+  }
+
+  void isDone(ToDoItem task) async {
+    task.checkboxChanged(task);
     notifyListeners();
   }
 }

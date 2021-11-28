@@ -13,21 +13,20 @@ class ToDoList extends StatelessWidget {
         children: list.map((task) => _listItem(context, task)).toList());
   }
 
-  Widget _listItem(context, task) {
+  Widget _listItem(context, ToDoItem task) {
     var state = Provider.of<MyState>(context, listen: false);
     return CheckboxListTile(
       title: Text(task.toDoText),
       secondary: IconButton(
         icon: Icon(Icons.close),
         onPressed: () {
-          var state = Provider.of<MyState>(context, listen: false);
           state.removeTask(task);
         },
       ),
       controlAffinity: ListTileControlAffinity.leading,
       value: task.isChanged,
       onChanged: (value) {
-        state.isChanged(task);
+        state.changingTask(task);
       },
     );
   }
