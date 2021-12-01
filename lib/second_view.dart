@@ -13,14 +13,11 @@ class SecondView extends StatefulWidget {
 }
 
 class SecondViewState extends State<SecondView> {
-  String? toDoText;
-
-  late TextEditingController textEditingController;
+  String toDoText = 'message';
+  TextEditingController textEditingController = TextEditingController();
 
   SecondViewState(ToDoItem task) {
     this.toDoText = task.toDoText;
-
-    textEditingController = TextEditingController();
 
     textEditingController.addListener(() {
       setState(() {
@@ -44,7 +41,6 @@ class SecondViewState extends State<SecondView> {
                   border: OutlineInputBorder(),
                   hintText: 'What are you going to do?'),
             ),
-            //          TaskInputField(ToDoItem(toDoText: this.toDoText)),
             Container(height: 20),
             addTask(),
           ],
@@ -61,7 +57,7 @@ class SecondViewState extends State<SecondView> {
           label: const Text('Add'),
           icon: const Icon(Icons.add),
           onPressed: () {
-            Navigator.pop(context, ToDoItem(toDoText: toDoText));
+            Navigator.pop(context, ToDoItem(toDoText: toDoText, id: ''));
           },
         ),
       ],
