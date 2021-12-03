@@ -4,9 +4,12 @@ import 'model.dart';
 import 'second_view.dart';
 import 'to_do_list.dart';
 
+//första sidan av appen, står som "home" till MaterialApp i main-filen
 class ToDoListView extends StatelessWidget {
   const ToDoListView({Key? key}) : super(key: key);
 
+//Uppbyggdnad av första sidan, appbar med en filterknapp, en body där ToDoList ligger (alltså listan med alla todos),
+//samt en knapp för att lägga till ny todo som tar en till andra sidan av appen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +42,7 @@ class ToDoListView extends StatelessWidget {
                   builder: (context) =>
                       SecondView(ToDoItem(toDoText: 'message', id: ''))));
           if (newTask != null) {
-            //lägg till ny task
+            //lägg till ny task i todo-listan
             Provider.of<MyState>(context, listen: false).addTask(newTask);
           }
         },
@@ -48,6 +51,7 @@ class ToDoListView extends StatelessWidget {
     );
   }
 
+//filterfunktionen, vad som ska visas på första sidan beroende på vilket val som gjorts under filterknappen
   List<ToDoItem> _filterList(list, value) {
     if (value == 1) return list;
     if (value == 2)

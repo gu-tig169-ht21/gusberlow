@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './model.dart';
 
+//andra sidan, där en ny task läggs till
+
 class SecondView extends StatefulWidget {
   final ToDoItem task;
 
@@ -25,6 +27,7 @@ class SecondViewState extends State<SecondView> {
       });
     });
   }
+  //scaffolden för denna view, med appbar samt textfield där ny task skrivs in, och addTask som skapas längre ner
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +41,7 @@ class SecondViewState extends State<SecondView> {
             TextField(
               controller: textEditingController,
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: 'What are you going to do?'),
+                  border: OutlineInputBorder(), hintText: 'Add new todo-task'),
             ),
             Container(height: 20),
             addTask(),
@@ -49,6 +51,7 @@ class SecondViewState extends State<SecondView> {
     );
   }
 
+//add-knappen under textfältet som när den blir klickad på sparar en inskriven task och lägger till i listan på första sidan
   Widget addTask() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -61,24 +64,6 @@ class SecondViewState extends State<SecondView> {
           },
         ),
       ],
-    );
-  }
-}
-
-class TaskInputField extends StatelessWidget {
-  final ToDoItem task;
-
-  TaskInputField(this.task);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(left: 16, right: 16),
-      child: const TextField(
-        decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'What are you going to do?'),
-      ),
     );
   }
 }

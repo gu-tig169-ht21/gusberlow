@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'model.dart';
 
+//Todo-listan som visas på första sidan av appen
 class ToDoList extends StatelessWidget {
   final List<ToDoItem> list;
 
@@ -13,6 +14,9 @@ class ToDoList extends StatelessWidget {
         children: list.map((task) => _listItem(context, task)).toList());
   }
 
+//hur varje task i todo-listan ska se ut, titeln är toDoText, längst till vänster
+//finns ett kryss för att ta bort en task, och längst till höger en checkbox som
+//kan få olika värde beroende på om den är icheckad eller ej
   Widget _listItem(context, ToDoItem task) {
     var state = Provider.of<MyState>(context, listen: false);
     return CheckboxListTile(
