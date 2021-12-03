@@ -6,7 +6,8 @@ import 'package:http/http.dart' as http;
 
 void main() async {
   var state = MyState();
-  await state.getList(); //hämtar listan med sparade todos när appen startar
+  await state
+      .getList(); //hämtar listan med sparade tasks/todos när appen startar
 
   runApp(
     ChangeNotifierProvider(
